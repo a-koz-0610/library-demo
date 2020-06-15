@@ -1,5 +1,7 @@
 package org.wecancodeit.librarydemo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.*;
 
@@ -14,8 +16,10 @@ public class Book {
     @ManyToOne
     private Campus campus;
     @ManyToMany
+    @JsonIgnore
     private Collection<Author> authors;
     @ManyToMany
+    @JsonIgnore
     private Set<HashTag> hashTags;
 
     public Long getId() {

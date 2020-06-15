@@ -1,5 +1,7 @@
 package org.wecancodeit.librarydemo.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,6 +17,7 @@ public class Campus {
     private Long id;
     private String location;
     @OneToMany(mappedBy = "campus")
+    @JsonIgnore
     private Collection<Book> books;
 
     public Long getId() {
