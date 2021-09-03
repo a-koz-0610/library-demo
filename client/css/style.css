@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+h1,
+h2,
+h3,
+h4 {
+  margin: 1.5rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#app {
+  background-color: #999;
+  border-radius: 8px;
+}
+.page-image {
+  height: 50%;
+  width: 75%;
+}
+.nav-list li {
+  background-color: blue;
+  border-radius: 10px;
+  color: #fff;
+  list-style-type: none;
+  padding: 1rem;
+}
+.nav-list li:hover {
+  background-color: lightblue;
+  color: #888;
+  transition: 0.5s;
+}
+.hashTags-list {
+  margin: 1rem;
+}
+.books-list__title {
+  margin: 1rem;
+  font-size: 20px;
+}
+.books-list__title:hover {
+  background-color: #ddd;
+  border-radius: 6px;
+  transition: 0.5s;
+  width: 50%;
+}
+.add-hashtag__name,
+.add-hashtag__bookSubmit {
+  margin: 2rem;
+  font-size: 20px;
+}

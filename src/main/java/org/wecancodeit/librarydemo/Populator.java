@@ -5,9 +5,11 @@ import org.springframework.stereotype.Component;
 import org.wecancodeit.librarydemo.models.Author;
 import org.wecancodeit.librarydemo.models.Book;
 import org.wecancodeit.librarydemo.models.Campus;
+import org.wecancodeit.librarydemo.models.HashTag;
 import org.wecancodeit.librarydemo.repositories.AuthorRepository;
 import org.wecancodeit.librarydemo.repositories.BookRepository;
 import org.wecancodeit.librarydemo.repositories.CampusRepository;
+import org.wecancodeit.librarydemo.repositories.HashTagRepository;
 
 import javax.annotation.Resource;
 
@@ -20,9 +22,16 @@ public class Populator implements CommandLineRunner {
     private AuthorRepository authorRepo;
     @Resource
     private BookRepository bookRepo;
+    @Resource
+    private HashTagRepository hashTagRepo;
 
     @Override
     public void run(String... args) throws Exception {
+
+        HashTag java = new HashTag("Java");
+        HashTag programming = new HashTag("Programming");
+        hashTagRepo.save(java);
+        hashTagRepo.save(programming);
 
         Campus columbus = new Campus("Columbus");
         Campus cleveland = new Campus("Cleveland");

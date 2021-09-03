@@ -35,4 +35,13 @@ public class HashTagRestController {
         return (Collection<HashTag>) hashTagRepo.findAll();
     }
 
+    @DeleteMapping("/api/hashtags/{id}/delete-hashtag")
+    public Collection<HashTag> deleteHashTag(@PathVariable Long id) throws JSONException {
+        Optional<HashTag> hashTagToRemoveOpt = hashTagRepo.findById(id);
+        if(hashTagToRemoveOpt.isPresent()){
+            hashTagRepo.delete(hashTagToRemoveOpt.get());
+        }
+        return (Collection<HashTag>) hashTagRepo.findAll();
+    }
+
 }
