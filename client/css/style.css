@@ -45,6 +45,7 @@ h4 {
   width: 50%;
 }
 .add-hashtag__name,
+.add-hashtag__submit,
 .add-hashtag__bookSubmit {
   margin: 2rem;
   font-size: 20px;

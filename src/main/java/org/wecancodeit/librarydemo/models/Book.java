@@ -19,7 +19,6 @@ public class Book {
     @JsonIgnore
     private Collection<Author> authors;
     @ManyToMany
-    @JsonIgnore
     private Set<HashTag> hashTags;
 
     public Long getId() {
