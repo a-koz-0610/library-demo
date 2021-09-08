@@ -16,9 +16,9 @@ public class Book {
     @ManyToOne
     private Campus campus;
     @ManyToMany
-    @JsonIgnore
     private Collection<Author> authors;
     @ManyToMany
+    @JsonIgnore
     private Set<HashTag> hashTags;
 
     public Long getId() {

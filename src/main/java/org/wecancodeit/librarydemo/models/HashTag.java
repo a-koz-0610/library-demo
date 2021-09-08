@@ -18,7 +18,6 @@ public class HashTag {
     private Long id;
     private String name;
     @ManyToMany(mappedBy ="hashTags")
-    @JsonIgnore
     private Collection<Book> books;
 
     public HashTag(){

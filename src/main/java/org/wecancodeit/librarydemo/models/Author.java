@@ -18,6 +18,7 @@ public class Author {
     private String firstName;
     private String lastName;
     @ManyToMany(mappedBy = "authors")
+    @JsonIgnore
     private Collection<Book> books;
 
     public Long getId() {
