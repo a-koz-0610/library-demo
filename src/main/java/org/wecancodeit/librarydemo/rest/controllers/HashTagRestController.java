@@ -3,7 +3,9 @@ package org.wecancodeit.librarydemo.rest.controllers;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
+import org.wecancodeit.librarydemo.models.Book;
 import org.wecancodeit.librarydemo.models.HashTag;
+import org.wecancodeit.librarydemo.repositories.BookRepository;
 import org.wecancodeit.librarydemo.repositories.HashTagRepository;
 
 import javax.annotation.Resource;
@@ -16,6 +18,9 @@ public class HashTagRestController {
 
     @Resource
     private HashTagRepository hashTagRepo;
+
+    @Resource
+    private BookRepository bookRepo;
 
     @GetMapping("/api/hashtags")
     public Collection<HashTag> getHashTags() {
@@ -39,6 +44,10 @@ public class HashTagRestController {
     public Collection<HashTag> deleteHashTag(@PathVariable Long id) throws JSONException {
         Optional<HashTag> hashTagToRemoveOpt = hashTagRepo.findById(id);
         if(hashTagToRemoveOpt.isPresent()){
+            for(Book book: hashTagToRemoveOpt.get().getBooks()){
+                book.deleteHashTag(hashTagToRemoveOpt.get());
+                bookRepo.save(book);
+            }
             hashTagRepo.delete(hashTagToRemoveOpt.get());
         }
         return (Collection<HashTag>) hashTagRepo.findAll();
